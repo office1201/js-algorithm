@@ -22,3 +22,29 @@ const solution1 = (a, b, c) => {
   return num;
 };
 ```
+
+```jsx
+// 2. 삼각형 판별하기
+// 가장 긴 변의 길이는 다른 두 변의 길이의 합보다 작아야 함
+
+const solution = (a, b, c) => {
+  let maxNum;
+  let answer = "가능";
+  const total = a + b + c;
+  a <= b ? (maxNum = b) : (maxNum = a);
+  maxNum < c ? (maxNum = c) : maxNum;
+  if (total - maxNum <= maxNum) answer = "불가능";
+  return answer;
+};
+
+console.log(solution(6, 7, 10));
+
+// 개선1.
+const solution1 = (a, b, c) => {
+  const maxNum = Math.max(a, b, c);
+  const total = a + b + c;
+  let answer = "가능";
+  if (total - maxNum <= maxNum) answer = "불가능";
+  return answer;
+};
+```
