@@ -66,6 +66,30 @@ console.log(solution(25));
 const solution = (num) => {
   const result = Math.ceil(num / 12);
   return result;
-  11;
 };
+```
+
+```jsx
+// 4. 1부터 N까지 합 출력하기
+// 자연수 N이 입력되면 1부터 N까지의 합을 출력하는 프로그램을 작성
+// 첫 번째 줄에 20이하의 자연수 N이 입력
+// 첫 번째 줄에 1부터 N까지의 합을 출력
+
+const solution = (num) => {
+  let result = 0;
+  for (let i = 0; i <= num; i++) {
+    result += i;
+  }
+  return result;
+};
+
+console.log(solution(10));
+
+// 개선1. #Math's reduce
+const solution1 = (n) => {
+  const reducer = (num1, num2) => num1 + num2;
+  return n.reduce(reducer);
+};
+
+console.log(solution1([1, 2, 3, 4]));
 ```
