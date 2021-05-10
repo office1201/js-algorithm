@@ -48,3 +48,24 @@ const solution1 = (a, b, c) => {
   return answer;
 };
 ```
+
+```jsx
+// 3. 연필 개수
+// 연필 1 다스는 12자루입니다. 학생 1인당 연필을 1자루씩 나누어 준다고 할 때
+// N명이 학생수 를 입력하면 필요한 연필의 다스 수를 계산하는 프로그램을 작성
+
+const solution = (num) => {
+  const das = 12;
+  const result = Math.ceil(num / das);
+  return result;
+};
+
+console.log(solution(25));
+
+// 개선1.
+const solution = (num) => {
+  const result = Math.ceil(num / 12);
+  return result;
+  11;
+};
+```
