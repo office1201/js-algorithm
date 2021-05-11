@@ -142,3 +142,27 @@ const today = 3;
 const numArr = [25, 23, 11, 47, 53, 17, 33];
 console.log(solution(today, numArr));
 ```
+
+```jsx
+// 8. 일곱난쟁이
+// 아홉 개의 줄에 걸쳐 난쟁이들의 키가 주어진다.
+// 주어지는 키는 100을 넘지 않는 자연수이며, 아홉 난쟁이의 키는 모두 다르며,
+// 가능한 정답이 여러 가지인 경우에는 아무거나 출력한다.
+
+const solution = (arr) => {
+  const reduceArr = arr.reduce((num1, num2) => num1 + num2, 0);
+  for (let i = 0; i <= arr.length; i++) {
+    const element = arr[i];
+    for (let j = 1; j <= arr.length; i++) {
+      const element1 = arr[i];
+      if (reduceArr - (element + element1) === 100) {
+        arr.splice(i, 1);
+        arr.splice(j, 1);
+      }
+    }
+  }
+  return arr;
+};
+
+console.log(solution([20, 7, 23, 19, 10, 15, 25, 8, 13]));
+```
