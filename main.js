@@ -1,13 +1,18 @@
 "use strict";
 
-const solution = (today, numArr) => {
-  let count = 0;
-  for (const x of numArr) {
-    if (x % 10 === today) count++;
+const solution = (arr) => {
+  const reduceArr = arr.reduce((num1, num2) => num1 + num2, 0);
+  for (let i = 0; i <= arr.length; i++) {
+    const element = arr[i];
+    for (let j = 1; j <= arr.length; i++) {
+      const element1 = arr[i];
+      if (reduceArr - (element + element1) === 100) {
+        arr.splice(i, 1);
+        arr.splice(j, 1);
+      }
+    }
   }
-  return count;
+  return arr;
 };
 
-const today = 3;
-const numArr = [25, 23, 11, 47, 53, 17, 33];
-console.log(solution(today, numArr));
+console.log(solution([20, 7, 23, 19, 10, 15, 25, 8, 13]));
