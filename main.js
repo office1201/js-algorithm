@@ -1,9 +1,13 @@
 "use strict";
 
-const solution = (...num) => {
-  const arr = num;
-  const minNum = Math.min(...arr);
-  return minNum;
+const solution = (today, numArr) => {
+  let count = 0;
+  for (const x of numArr) {
+    if (x % 10 === today) count++;
+  }
+  return count;
 };
 
-console.log(solution(5, 3, 7, 11, 2, 15, 17));
+const today = 3;
+const numArr = [25, 23, 11, 47, 53, 17, 33];
+console.log(solution(today, numArr));
