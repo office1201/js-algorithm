@@ -120,8 +120,9 @@ console.log(solution(12, 77, 38, 41, 53, 92, 85));
 ```jsx
 // 6. 최소값 구하기
 
-const solution = (num) => {
+const solution = (...num) => {
   const minNum = Math.min(...num);
+  return minNum;
 };
 
 console.log(solution(5, 3, 7, 11, 2, 15, 17));
