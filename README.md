@@ -218,3 +218,29 @@ const solution = (s) => {
 const str = "BANANA";
 console.log(solution(str));
 ```
+
+```jsx
+// 10. 문자 찾기
+const solution = () => {
+  let count = 0;
+  for (const i of str) {
+    if (i === x) count++;
+  }
+  return count;
+};
+
+let str = "0x0x";
+let x = "x";
+console.log(solution(str, x));
+
+// 2. 생각2-내장함수
+// #split()
+const solution = (str, x) => {
+  const answer = str.split(x).length - 1;
+  return answer;
+};
+
+const str = "0x01";
+const x = "x";
+console.log(solution(str, x));
+```
