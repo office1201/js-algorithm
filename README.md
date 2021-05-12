@@ -247,7 +247,7 @@ console.log(solution(str, x));
 ```
 
 ```jsx
-// 11. 대문자 찾기
+// 11. 대소문자 변환
 
 const solution = (str) => {
   let result = "";
