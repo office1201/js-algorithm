@@ -1,8 +1,28 @@
 "use strict";
 
-const solution = (...num) => {
-  const minNum = Math.min(...num);
-  return minNum;
+const solution = (str) => {
+  let result = "";
+  for (let i of str) {
+    if (i === i.toUpperCase()) result += i.toLowerCase();
+    if (i === i.toLowerCase()) result += i.toUpperCase();
+  }
+  return result;
 };
 
-console.log(solution(5, 3, 7, 11, 2, 15, 17));
+const str = "StuDy";
+console.log(solution(str));
+
+// 2. 생각2-내장함수
+// #charCodeAt()
+// 대문자: 65~90, 소문자: 97~122
+const solution = (str) => {
+  let count = 0;
+  for (let i of str) {
+    let num = i.charCodeAt();
+    if (num >= 65 && num <= 90) count++;
+  }
+  return count;
+};
+
+const str = "StuDy";
+console.log(solution(str));

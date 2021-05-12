@@ -167,3 +167,112 @@ const solution = (arr) => {
 
 console.log(solution([20, 7, 23, 19, 10, 15, 25, 8, 13]));
 ```
+
+```jsx
+// 9. A를 #으로
+// ▣ 입력예제 1 BANANA
+// ▣ 출력예제 1 B#N#N#
+
+// * 생각의 순서
+// 1. 생각1
+const solution = (str) => {
+  const strSplit = str.split("");
+  for (let i = 0; i < strSplit.length; i++) {
+    if (strSplit[i] === "A") strSplit[i] = "#";
+  }
+  const result = strSplit.join("");
+  return result;
+};
+
+const str = "BANANA";
+console.log(solution(str));
+
+// 2. 생각2
+// #forOf, #삼항연산자를 쓰지 않고
+const solution = (str) => {
+  let result = "";
+  for (const i of str) {
+    if (i !== "A") result += i;
+    if (i === "A") result += `#`;
+  }
+  return result;
+};
+
+const str = "BANANA";
+console.log(solution(str));
+
+// 3. 생각3
+// #replace(), #정규식🔥
+//(1) const 활용 시
+const solution = (s) => {
+  const result = s.replace(/A/g, "#");
+  return result;
+};
+// (2) let 활용 시
+const solution = (s) => {
+  let result = s;
+  result = result.replace(/A/g, "#");
+  return result;
+};
+
+const str = "BANANA";
+console.log(solution(str));
+```
+
+```jsx
+// 10. 문자 찾기
+
+const solution = () => {
+  let count = 0;
+  for (const i of str) {
+    if (i === x) count++;
+  }
+  return count;
+};
+
+let str = "0x0x";
+let x = "x";
+console.log(solution(str, x));
+
+// 2. 생각2-내장함수
+// #split()
+const solution = (str, x) => {
+  const answer = str.split(x).length - 1;
+  return answer;
+};
+
+const str = "0x01";
+const x = "x";
+console.log(solution(str, x));
+```
+
+```jsx
+// 11. 대문자 찾기
+
+const solution = (str) => {
+  let result = "";
+  for (let i of str) {
+    if (i === i.toUpperCase()) result += i.toLowerCase();
+    if (i === i.toLowerCase()) result += i.toUpperCase();
+  }
+  return result;
+};
+
+const str = "StuDy";
+console.log(solution(str));
+
+// 2. 생각2-내장함수
+// #charCodeAt()
+// 대문자: 65~90, 소문자: 97~122
+const solution = (str) => {
+  let count = 0;
+  for (let i of str) {
+    let num = i.charCodeAt();
+    if (num >= 65 && num <= 90) count++;
+  }
+  return count;
+};
+
+const str = "StuDy";
+console.log(solution(str));
+```
