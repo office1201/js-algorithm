@@ -1,28 +1,29 @@
 "use strict";
 
-const solution = (str) => {
-  let result = "";
-  for (let i of str) {
-    if (i === i.toUpperCase()) result += i.toLowerCase();
-    if (i === i.toLowerCase()) result += i.toUpperCase();
+// 12. 대문자 찾기
+// charCodeAt()
+
+const solution = (param, param2) => {
+  let count = 0;
+  for (const i of param2) {
+    if (i.charCodeAt() >= 65 && i.charCodeAt() <= 90) count++;
   }
-  return result;
+  return `${param} ${count}`;
 };
 
-const str = "StuDy";
-console.log(solution(str));
+const str = "KoreaTimeGood";
+console.log(solution(1, str));
 
 // 2. 생각2-내장함수
-// #charCodeAt()
-// 대문자: 65~90, 소문자: 97~122
-const solution = (str) => {
+// toUpperCase() 고려하기
+
+const solution2 = (a, b) => {
   let count = 0;
-  for (let i of str) {
-    let num = i.charCodeAt();
-    if (num >= 65 && num <= 90) count++;
+  for (const i of b) {
+    if (i === i.toUpperCase()) count++;
   }
-  return count;
+  return `${a} ${count}`;
 };
 
-const str = "StuDy";
-console.log(solution(str));
+const str = "KoreaTimeGood";
+console.log(solution2(1, str));
