@@ -174,7 +174,7 @@ console.log(solution([20, 7, 23, 19, 10, 15, 25, 8, 13]));
 // ▣ 출력예제 1 B#N#N#
 
 // * 생각의 순서
-// 1. 생각1
+// 생각1.
 const solution = (str) => {
   const strSplit = str.split("");
   for (let i = 0; i < strSplit.length; i++) {
@@ -187,7 +187,7 @@ const solution = (str) => {
 const str = "BANANA";
 console.log(solution(str));
 
-// 2. 생각2
+// 생각2.
 // #forOf, #삼항연산자를 쓰지 않고
 const solution = (str) => {
   let result = "";
@@ -201,7 +201,7 @@ const solution = (str) => {
 const str = "BANANA";
 console.log(solution(str));
 
-// 3. 생각3
+// 생각3.
 // #replace(), #정규식🔥
 //(1) const 활용 시
 const solution = (s) => {
@@ -234,7 +234,7 @@ let str = "0x0x";
 let x = "x";
 console.log(solution(str, x));
 
-// 2. 생각2-내장함수
+// 생각2. 내장함수
 // #split()
 const solution = (str, x) => {
   const answer = str.split(x).length - 1;
@@ -261,7 +261,7 @@ const solution = (str) => {
 const str = "StuDy";
 console.log(solution(str));
 
-// 2. 생각2-내장함수
+// 생각2. 내장함수
 // #charCodeAt()
 // 대문자: 65~90, 소문자: 97~122
 const solution = (str) => {
@@ -292,7 +292,7 @@ const solution = (param, param2) => {
 const str = "KoreaTimeGood";
 console.log(solution(1, str));
 
-// 2. 생각2-내장함수
+// 생각2. 내장함수
 // toUpperCase() 고려하기
 
 const solution2 = (a, b) => {
@@ -319,7 +319,7 @@ const str = `ItisTimeToStudy`;
 console.log(solution(1, str));
 String.fromCharCode;
 
-// 2. 생각2-내장함수
+// 생각2. 내장함수
 // String.fromCharCode() 고려하기
 ```
 
@@ -342,6 +342,6 @@ const N = [1, 5];
 const arr = ["teacher", "time", "student", "beautiful", "good"];
 console.log(solution(N, arr));
 
-// 2. 생각2-내장함수
+// 생각2. 내장함수
 // 없음
 ```
