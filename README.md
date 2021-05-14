@@ -360,7 +360,7 @@ const solution = () => {
 const str = "study";
 console.log(str.substring(3));
 
-// 2. 생각2-내장함수
+// 생각2. 내장함수
 // #susString
 const solution1 = () => {
   const num = Math.floor(str.length / 2);
@@ -387,7 +387,7 @@ const solution = () => {
 const str = "ksekset";
 console.log(solution(str));
 
-// 2. 생각2-표준내장객체
+// 생각2. 표준내장객체
 // #Set
 const solution1 = (str) => {
   const set = [...new Set(str)].join("");
