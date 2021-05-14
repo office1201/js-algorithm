@@ -1,25 +1,25 @@
 "use strict";
 
-// 15. 가운데 문자 출력
-// 🏓삼항연산자를 쓰지 않고 진행
+// 16. 중복문자 제거
 
 const solution = () => {
-  const validate = Math.floor(str.length / 2);
-  const oddNum = str[Math.floor(str.length / 2)];
-  const evenNum = [str[validate - 1], str[validate]].join("");
-  str.length % 2 === 1 ? oddNum : evenNum;
+  let result = "";
+  for (let i = 0; i < str.length; i++) {
+    // console.log(i, str[i], str.indexOf(str[i]));
+    if (str.indexOf(str[i]) === i) result += str[i];
+  }
+  return result;
 };
 
-const str = "study";
-console.log(str.substring(3));
+const str = "ksekset";
+console.log(solution(str));
 
-// 2. 생각2-내장함수
-// #susString
-const solution1 = () => {
-  const num = Math.floor(str.length / 2);
-  if (str.length % 2 === 1) return str.substring(num, num + 1);
-  if (str.length % 2 === 0) return str.substring(num - 1, num + 1);
+// 2. 생각2-표준내장객체
+// #Set
+const solution1 = (str) => {
+  const set = [...new Set(str)].join("");
+  return set;
 };
 
-const str = "stud1y";
+const str = "ksekset";
 console.log(solution1(str));
