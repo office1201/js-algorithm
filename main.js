@@ -1,25 +1,28 @@
 "use strict";
 
-// 17. 중복단어 제거
-
+// 18. 큰 수 출력하기
 const solution = () => {
-  const set = [...new Set(str)];
   let arr = [];
-  for (const i of set) {
-    if (typeof i === "string") arr.push(i);
+  for (let i = 0; i < arrN.length; i++) {
+    const fNumber = arrN[i];
+    const bNumber = arrN[i + 1];
+    if (fNumber < bNumber) arr.push(bNumber);
   }
   return arr;
 };
 
-const str = [5, "good", "time", "good", "time", "student"];
-console.log(solution(str));
+const arrN = [6, 7, 3, 9, 5, 6, 12];
+console.log(solution(arrN));
 
-// 생각2.표준내장객체
-// #filter(), #indexOf()
-const solution = () => {
-  let result;
-  result = str.filter((v, i) => {
-    if (str.indexOf(v) === i) return v;
-  });
-  return result;
+// 생각2. 🔥🔥🔥코드 리팩토링🔥🔥🔥
+const solution1 = () => {
+  let arr = [];
+  arr.push(arrN[0]);
+  for (let i = 1; i < arrN.length; i++) {
+    if (arrN[i] > arrN[i - 1]) arr.push(arrN[i]);
+  }
+  return arr;
 };
+
+const arrN = [6, 7, 3, 9, 5, 6, 12];
+console.log(solution1(arrN));
