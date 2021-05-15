@@ -1,25 +1,25 @@
 "use strict";
 
-// 16. 중복문자 제거
+// 17. 중복단어 제거
 
 const solution = () => {
-  let result = "";
-  for (let i = 0; i < str.length; i++) {
-    // console.log(i, str[i], str.indexOf(str[i]));
-    if (str.indexOf(str[i]) === i) result += str[i];
+  const set = [...new Set(str)];
+  let arr = [];
+  for (const i of set) {
+    if (typeof i === "string") arr.push(i);
   }
-  return result;
+  return arr;
 };
 
-const str = "ksekset";
+const str = [5, "good", "time", "good", "time", "student"];
 console.log(solution(str));
 
-// 2. 생각2-표준내장객체
-// #Set
-const solution1 = (str) => {
-  const set = [...new Set(str)].join("");
-  return set;
+// 생각2.표준내장객체
+// #filter(), #indexOf()
+const solution = () => {
+  let result;
+  result = str.filter((v, i) => {
+    if (str.indexOf(v) === i) return v;
+  });
+  return result;
 };
-
-const str = "ksekset";
-console.log(solution1(str));
