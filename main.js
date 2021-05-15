@@ -1,28 +1,25 @@
 "use strict";
 
-const solution = (str) => {
+// 16. 중복문자 제거
+
+const solution = () => {
   let result = "";
-  for (let i of str) {
-    if (i === i.toUpperCase()) result += i.toLowerCase();
-    if (i === i.toLowerCase()) result += i.toUpperCase();
+  for (let i = 0; i < str.length; i++) {
+    // console.log(i, str[i], str.indexOf(str[i]));
+    if (str.indexOf(str[i]) === i) result += str[i];
   }
   return result;
 };
 
-const str = "StuDy";
+const str = "ksekset";
 console.log(solution(str));
 
-// 2. 생각2-내장함수
-// #charCodeAt()
-// 대문자: 65~90, 소문자: 97~122
-const solution = (str) => {
-  let count = 0;
-  for (let i of str) {
-    let num = i.charCodeAt();
-    if (num >= 65 && num <= 90) count++;
-  }
-  return count;
+// 2. 생각2-표준내장객체
+// #Set
+const solution1 = (str) => {
+  const set = [...new Set(str)].join("");
+  return set;
 };
 
-const str = "StuDy";
-console.log(solution(str));
+const str = "ksekset";
+console.log(solution1(str));

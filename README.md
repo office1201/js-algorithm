@@ -174,7 +174,7 @@ console.log(solution([20, 7, 23, 19, 10, 15, 25, 8, 13]));
 // ▣ 출력예제 1 B#N#N#
 
 // * 생각의 순서
-// 1. 생각1
+// 생각1.
 const solution = (str) => {
   const strSplit = str.split("");
   for (let i = 0; i < strSplit.length; i++) {
@@ -187,7 +187,7 @@ const solution = (str) => {
 const str = "BANANA";
 console.log(solution(str));
 
-// 2. 생각2
+// 생각2.
 // #forOf, #삼항연산자를 쓰지 않고
 const solution = (str) => {
   let result = "";
@@ -201,7 +201,7 @@ const solution = (str) => {
 const str = "BANANA";
 console.log(solution(str));
 
-// 3. 생각3
+// 생각3.
 // #replace(), #정규식🔥
 //(1) const 활용 시
 const solution = (s) => {
@@ -234,7 +234,7 @@ let str = "0x0x";
 let x = "x";
 console.log(solution(str, x));
 
-// 2. 생각2-내장함수
+// 생각2. 내장함수
 // #split()
 const solution = (str, x) => {
   const answer = str.split(x).length - 1;
@@ -247,7 +247,7 @@ console.log(solution(str, x));
 ```
 
 ```jsx
-// 11. 대문자 찾기
+// 11. 대소문자 변환
 
 const solution = (str) => {
   let result = "";
@@ -261,7 +261,7 @@ const solution = (str) => {
 const str = "StuDy";
 console.log(solution(str));
 
-// 2. 생각2-내장함수
+// 생각2. 내장함수
 // #charCodeAt()
 // 대문자: 65~90, 소문자: 97~122
 const solution = (str) => {
@@ -275,4 +275,125 @@ const solution = (str) => {
 
 const str = "StuDy";
 console.log(solution(str));
+```
+
+```jsx
+// 12. 대문자 찾기
+// #charCodeAt()
+
+const solution = (param, param2) => {
+  let count = 0;
+  for (const i of param2) {
+    if (i.charCodeAt() >= 65 && i.charCodeAt() <= 90) count++;
+  }
+  return `${param} ${count}`;
+};
+
+const str = "KoreaTimeGood";
+console.log(solution(1, str));
+
+// 생각2. 내장함수
+// #toUpperCase()
+
+const solution2 = (a, b) => {
+  let count = 0;
+  for (const i of b) {
+    if (i === i.toUpperCase()) count++;
+  }
+  return `${a} ${count}`;
+};
+
+const str = "KoreaTimeGood";
+console.log(solution2(1, str));
+```
+
+```jsx
+// 13. 대문자로 통일
+
+const solution = (param, param2) => {
+  const result = param2.toUpperCase();
+  return `${param} ${result}`;
+};
+
+const str = `ItisTimeToStudy`;
+console.log(solution(1, str));
+String.fromCharCode;
+
+// 생각2. 내장함수
+// #String.fromCharCode()
+```
+
+```jsx
+// 14. 가장 긴 문자열
+
+const solution = () => {
+  let number;
+  let string;
+  for (const n of N) {
+    if (3 <= n && n <= 30) number = n;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[0].length < arr[i].length) string = arr[i];
+  }
+  return `${number} ${string}`;
+};
+
+const N = [1, 5];
+const arr = ["teacher", "time", "student", "beautiful", "good"];
+console.log(solution(N, arr));
+
+// 생각2. 내장함수
+// 없음
+```
+
+```jsx
+// 15. 가운데 문자 출력
+// 🏓삼항연산자를 쓰지 않고 진행
+
+const solution = () => {
+  const validate = Math.floor(str.length / 2);
+  const oddNum = str[Math.floor(str.length / 2)];
+  const evenNum = [str[validate - 1], str[validate]].join("");
+  str.length % 2 === 1 ? oddNum : evenNum;
+};
+
+const str = "study";
+console.log(str.substring(3));
+
+// 생각2. 내장함수
+// #susString
+const solution1 = () => {
+  const num = Math.floor(str.length / 2);
+  if (str.length % 2 === 1) return str.substring(num, num + 1);
+  if (str.length % 2 === 0) return str.substring(num - 1, num + 1);
+};
+
+const str = "stud1y";
+console.log(solution1(str));
+```
+
+```jsx
+// 16. 중복문자 제거
+
+const solution = () => {
+  let result = "";
+  for (let i = 0; i < str.length; i++) {
+    // console.log(i, str[i], str.indexOf(str[i]));
+    if (str.indexOf(str[i]) === i) result += str[i];
+  }
+  return result;
+};
+
+const str = "ksekset";
+console.log(solution(str));
+
+// 생각2. 표준내장객체
+// #Set
+const solution1 = (str) => {
+  const set = [...new Set(str)].join("");
+  return set;
+};
+
+const str = "ksekset";
+console.log(solution1(str));
 ```
