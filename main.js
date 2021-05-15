@@ -1,14 +1,10 @@
 "use strict";
 
-// 19. 보이는 학생
-
-const solution = () => {
-  let count = 0;
-  for (let i = 0; i < students.length; i++) {
-    if (students[i] < students[i + 1]) count++;
-  }
-  return count;
+// 20. 가위 바위 보
+const solutionGame = (A, B) => {
+  if ((A === "가위" && B === "보") || (A === "가위" && B === "보") || (A === "보") & (B === "바위")) return "WinA";
+  if ((B === "가위" && A === "보") || (B === "가위" && A === "보") || (B === "보") & (A === "바위")) return "WinB";
+  else return "Draw";
 };
 
-const students = [130, 135, 148, 140, 145, 150, 150, 153];
-console.log(solution(students));
+console.log(solutionGame("가위", "가위"));
