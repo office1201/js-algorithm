@@ -1,25 +1,10 @@
 "use strict";
 
-// 17. 중복단어 제거
-
-const solution = () => {
-  const set = [...new Set(str)];
-  let arr = [];
-  for (const i of set) {
-    if (typeof i === "string") arr.push(i);
-  }
-  return arr;
+// 20. 가위 바위 보
+const solutionGame = (A, B) => {
+  if ((A === "가위" && B === "보") || (A === "가위" && B === "보") || (A === "보") & (B === "바위")) return "WinA";
+  if ((B === "가위" && A === "보") || (B === "가위" && A === "보") || (B === "보") & (A === "바위")) return "WinB";
+  else return "Draw";
 };
 
-const str = [5, "good", "time", "good", "time", "student"];
-console.log(solution(str));
-
-// 생각2.표준내장객체
-// #filter(), #indexOf()
-const solution = () => {
-  let result;
-  result = str.filter((v, i) => {
-    if (str.indexOf(v) === i) return v;
-  });
-  return result;
-};
+console.log(solutionGame("가위", "가위"));
