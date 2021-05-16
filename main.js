@@ -1,10 +1,17 @@
 "use strict";
 
-// 20. 가위 바위 보
-const solutionGame = (A, B) => {
-  if ((A === "가위" && B === "보") || (A === "가위" && B === "보") || (A === "보") & (B === "바위")) return "WinA";
-  if ((B === "가위" && A === "보") || (B === "가위" && A === "보") || (B === "보") & (A === "바위")) return "WinB";
-  else return "Draw";
+// 21. 점수계산
+const solution = (num) => {
+  let count = 0;
+  let counting = 0;
+  for (let i = 0; i < num.length; i++) {
+    const element = num[i];
+    if (element === 1) counting++;
+    if (element === 0) counting = 0;
+    count += counting;
+  }
+  return count;
 };
 
-console.log(solutionGame("가위", "가위"));
+const arr = [1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
+console.log(solution(arr));
