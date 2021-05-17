@@ -1,17 +1,33 @@
 "use strict";
 
-// 21. 점수계산
-const solution = (num) => {
-  let count = 0;
-  let counting = 0;
-  for (let i = 0; i < num.length; i++) {
-    const element = num[i];
-    if (element === 1) counting++;
-    if (element === 0) counting = 0;
-    count += counting;
+// 22. 등수구하기
+const solution = () => {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    let count = 1;
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i] < arr[j]) {
+        count++;
+      }
+    }
+    result.push(count);
   }
-  return count;
+  return result;
 };
 
-const arr = [1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
+const arr = [87, 89, 92, 100, 76];
 console.log(solution(arr));
+
+// 생각2. Array.from 활용
+const solution1 = () => {
+  const result = Array.from({ length: arr.length }, () => 1);
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i] < arr[j]) result[i]++;
+    }
+  }
+  return result;
+};
+
+const arr = [87, 89, 92, 100, 76];
+console.log(solution1(arr));
