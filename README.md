@@ -538,3 +538,20 @@ console.log(solution1(arr));
 // 23. 격자판 최대합
 `🔥🔥🔥🔥난이도🔥🔥🔥🔥, 이후 진행📝`;
 ```
+
+```jsx
+// 24. 봉우리
+`🔥🔥🔥🔥난이도🔥🔥🔥🔥, 이후 진행📝`;
+```
+
+```jsx
+// 25. 회문 문자열
+const solution = () => {
+  const reverse = [...str].reverse().join("");
+  if (str.toLowerCase() === reverse.toLowerCase()) return "YES";
+  return "NO";
+};
+
+const str = "gooG";
+console.log(solution(str));
+```
