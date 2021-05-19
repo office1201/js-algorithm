@@ -1,11 +1,12 @@
 "use strict";
 
-// 25. 회문 문자열
+// 26. 유효한 팰린드롬
+
 const solution = () => {
-  const reverse = [...str].reverse().join("");
-  if (str.toLowerCase() === reverse.toLowerCase()) return "YES";
+  const replacer = s.toLowerCase().replace(/[^a-z]/g, "");
+  if (replacer.split("").join() === replacer.split("").reverse().join()) return "YES";
   return "NO";
 };
 
-const str = "gooG";
-console.log(solution(str));
+const s = "found7, time: study; Yduts; emit, 7Dnuof";
+console.log(solution(s));
