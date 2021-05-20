@@ -580,7 +580,7 @@ const solution = () => {
 const s = "g0en2T0s8eSoft";
 console.log(solution(s));
 
-// 생각2. isNan() 활용
+// 생각2. isNaN() 활용
 
 const solution1 = () => {
   let result = "";
