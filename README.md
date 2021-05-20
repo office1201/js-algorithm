@@ -555,3 +555,38 @@ const solution = () => {
 const str = "gooG";
 console.log(solution(str));
 ```
+
+```jsx
+// 26. 유효한 팰린드롬
+
+const solution = () => {
+  const replacer = s.toLowerCase().replace(/[^a-z]/g, "");
+  if (replacer.split("").join() === replacer.split("").reverse().join()) return "YES";
+  return "NO";
+};
+
+const s = "found7, time: study; Yduts; emit, 7Dnuof";
+console.log(solution(s));
+```
+
+```jsx
+// 27. 숫자만 추출
+
+const solution = () => {
+  const replacer = s.toLowerCase().replace(/[a-z]/g, "");
+  return Number(replacer);
+};
+
+const s = "g0en2T0s8eSoft";
+console.log(solution(s));
+
+// 생각2. isNan() 활용
+
+const solution1 = () => {
+  let result = "";
+  for (const i of s) {
+    if (!isNaN(i)) result += i;
+  }
+  return Number(result);
+};
+```

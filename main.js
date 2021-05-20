@@ -1,11 +1,21 @@
 "use strict";
 
-// 25. 회문 문자열
+// 27. 숫자만 추출
+
 const solution = () => {
-  const reverse = [...str].reverse().join("");
-  if (str.toLowerCase() === reverse.toLowerCase()) return "YES";
-  return "NO";
+  const replacer = s.toLowerCase().replace(/[a-z]/g, "");
+  return Number(replacer);
 };
 
-const str = "gooG";
-console.log(solution(str));
+const s = "g0en2T0s8eSoft";
+console.log(solution(s));
+
+// 생각2. isNan() 활용
+
+const solution1 = () => {
+  let result = "";
+  for (const i of s) {
+    if (!isNaN(i)) result += i;
+  }
+  return Number(result);
+};
