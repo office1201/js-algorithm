@@ -1,21 +1,27 @@
-"use strict";
-
-// 27. 숫자만 추출
+"use stict";
 
 const solution = () => {
-  const replacer = s.toLowerCase().replace(/[a-z]/g, "");
-  return Number(replacer);
-};
-
-const s = "g0en2T0s8eSoft";
-console.log(solution(s));
-
-// 생각2. isNan() 활용
-
-const solution1 = () => {
-  let result = "";
-  for (const i of s) {
-    if (!isNaN(i)) result += i;
+  let temp = Array.from({ length: str.length }, () => 0);
+  let temp1 = Array.from({ length: str.length }, () => 0);
+  let count = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== "e") count++;
+    if (str[i] === "e") count = 0;
+    temp[i] = count;
   }
-  return Number(result);
+  const str1 = [...str].reverse().join("");
+  for (let i = 0; i < str1.length; i++) {
+    if (str1[i] !== "e") count++;
+    if (str1[i] === "e") count = 0;
+    temp1[i] = count;
+  }
+  temp1.reverse();
+  let result = [];
+  for (let i = 0; i < str.length; i++) {
+    result.push(Math.min(temp[i], temp1[i]));
+  }
+  return result.join("");
 };
+
+const str = "teachermode";
+console.log(solution(str));
