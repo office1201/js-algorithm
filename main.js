@@ -1,27 +1,20 @@
 "use stict";
 
-const solution = () => {
-  let temp = Array.from({ length: str.length }, () => 0);
-  let temp1 = Array.from({ length: str.length }, () => 0);
-  let count = 0;
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] !== "e") count++;
-    if (str[i] === "e") count = 0;
-    temp[i] = count;
+const solution = (s) => {
+  let result = "";
+  let count = 1;
+  s = s + "";
+
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === s[i + 1]) count++;
+    if (s[i] !== s[i + 1]) {
+      result += s[i];
+      if (count > 1) result += String(count);
+      count = 1;
+    }
   }
-  const str1 = [...str].reverse().join("");
-  for (let i = 0; i < str1.length; i++) {
-    if (str1[i] !== "e") count++;
-    if (str1[i] === "e") count = 0;
-    temp1[i] = count;
-  }
-  temp1.reverse();
-  let result = [];
-  for (let i = 0; i < str.length; i++) {
-    result.push(Math.min(temp[i], temp1[i]));
-  }
-  return result.join("");
+  return result;
 };
 
-const str = "teachermode";
+const str = "KKHSSSSSSSE";
 console.log(solution(str));
