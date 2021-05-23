@@ -1,20 +1,20 @@
 "use strict";
 
-// 30. 자릿수의 합
+// 31. 뒤집은 소수
 
-const solution = (arr) => {
-  let temp = [];
-  let result;
-  const reducer = (x, y) => Number(x) + Number(y);
-  for (let i = 0; i < arr.length; i++) {
-    temp.push(arr[i].toString().split("").reduce(reducer));
+const determine = (number) => {
+  if (number == 1) return false;
+  if (number == 2 || number == 3) return true;
+  if (number % 2 == 0 || number % 3 == 0) return false;
+  for (let i = 5; i * i <= number; i += 6) {
+    if (number % i == 0 || number % (i + 2) == 0) return false;
   }
-  for (let i = 0; i < temp.length; i++) {
-    if (temp[0] >= temp[i]) result = arr[0];
-    else result = arr[i];
-  }
-  return result;
+  return true;
 };
 
-const arr = [128, 460, 603, 40, 521, 137, 123];
+const solution = (arr) => {
+  return arr.map((number) => parseInt(String(number).split("").reverse().join(""))).filter((number) => determine(number));
+};
+
+const arr = [32, 55, 62, 20, 250, 370, 200, 30, 100];
 console.log(solution(arr));
