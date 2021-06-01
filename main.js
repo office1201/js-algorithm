@@ -1,11 +1,17 @@
 "use strict";
 
-// 35. 두 배열 합치기
-const solution = (a, b) => {
-  const arrN = [].concat(a, b);
-  return arrN.sort((a, b) => a - b);
+// 36. 공통원소 구하기
+const a = [1, 3, 9, 5, 2];
+const b = [3, 2, 5, 7, 8];
+
+const solution = () => {
+  let result = [];
+  for (const i of a) {
+    for (const j of b) {
+      if (i === j) result.push(i);
+    }
+  }
+  return result.sort();
 };
 
-const arr1 = [1, 3, 5];
-const arr2 = [2, 3, 6, 7, 9];
-console.log(solution(arr1, arr2));
+console.log(solution(a, b));
