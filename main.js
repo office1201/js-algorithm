@@ -1,17 +1,20 @@
 "use strict";
 
-// 36. 공통원소 구하기
-const a = [1, 3, 9, 5, 2];
-const b = [3, 2, 5, 7, 8];
+// 38. 연속 부분수혈2
 
-const solution = () => {
-  let result = [];
-  for (const i of a) {
-    for (const j of b) {
-      if (i === j) result.push(i);
+const solution = (m, arr) => {
+  let answer = 0;
+  let sum = 0;
+  let j = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+    while (sum > m) {
+      sum = arr[i++];
     }
+    answer += i - j + 1;
   }
-  return result.sort();
+  return answer;
 };
 
-console.log(solution(a, b));
+const arr = [1, 3, 1, 2, 3];
+console.log(solution(5, arr));
