@@ -1,20 +1,19 @@
 "use strict";
 
-// 38. 연속 부분수혈2
+// 39. 최대 매출
 
-const solution = (m, arr) => {
+const arr = [12, 15, 11, 20, 25, 10, 20, 19, 13, 15];
+
+const solution = (a, arr) => {
   let answer = 0;
   let sum = 0;
-  let j = 0;
-  for (let i = 0; i < arr.length; i++) {
-    sum += arr[i];
-    while (sum > m) {
-      sum = arr[i++];
-    }
-    answer += i - j + 1;
+  for (let i = 0; i < a; i++) sum += arr[i];
+  answer = sum;
+  for (let i = a; i < arr.length; i++) {
+    sum += arr[i] - arr[i - a];
+    answer = Math.max(answer, sum);
   }
   return answer;
 };
 
-const arr = [1, 3, 1, 2, 3];
-console.log(solution(5, arr));
+console.log(solution(3, arr));
