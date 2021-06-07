@@ -1,19 +1,20 @@
 "use strict";
 
-// 39. 최대 매출
+const str = `BACBACCACCBDEDE`;
 
-const arr = [12, 15, 11, 20, 25, 10, 20, 19, 13, 15];
+// 40. 학급 회장
 
-const solution = (a, arr) => {
-  let answer = 0;
-  let sum = 0;
-  for (let i = 0; i < a; i++) sum += arr[i];
-  answer = sum;
-  for (let i = a; i < arr.length; i++) {
-    sum += arr[i] - arr[i - a];
-    answer = Math.max(answer, sum);
+const solution = (s) => {
+  let answer;
+  let sH = new Map();
+  for (const s of str) {
+    if (sH.has(s)) sH.set(s, sH.get(s) + 1);
+    else sH.set(s, 1);
+  }
+  let max = Number.MIN_SAFE_INTEGER;
+  for (const [key, value] of sH) {
+    if (value > max) (max = value), (answer = key);
   }
   return answer;
 };
-
-console.log(solution(3, arr));
+console.log(solution(str));
