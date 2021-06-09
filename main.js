@@ -1,20 +1,20 @@
 "use strict";
 
-const str = `BACBACCACCBDEDE`;
-
-// 40. 학급 회장
-
-const solution = (s) => {
-  let answer;
-  let sH = new Map();
-  for (const s of str) {
-    if (sH.has(s)) sH.set(s, sH.get(s) + 1);
-    else sH.set(s, 1);
+const solution = (str1, str2) => {
+  let answer = "YES";
+  const sH = new Map();
+  for (const x of str1) {
+    if (sH.has(x)) sH.set(x, sH.get(x) + 1);
+    else sH.set(x, 1);
   }
-  let max = Number.MIN_SAFE_INTEGER;
-  for (const [key, value] of sH) {
-    if (value > max) (max = value), (answer = key);
+  for (const x of str2) {
+    if (!sH.has(x) || sH.get(x) === 0) return "NO";
+    sH.set(x, sH.get(x) - 1);
   }
+
   return answer;
 };
-console.log(solution(str));
+
+const a = `AbaAeCe`;
+const b = `baeeACA`;
+console.log(solution(a, b));
