@@ -1,21 +1,29 @@
 "use strict";
 
-// 43. 올바른 괄호(스택)
-
+// 44. 괄호문자제거
 const solution = (s) => {
-  const answer = "YES";
+  let answer = "";
   let stack = [];
   for (const x of s) {
-    if (x === "(") stack.push(x);
-    else {
-      if (stack.length === 0) return "NO";
-      stack.pop();
-    }
+    if (x === ")") {
+      while (stack.pop() !== "(");
+    } else stack.push(x);
   }
-  if (stack.length > 0) return "NO";
-
+  answer = stack.join("");
   return answer;
 };
 
-const str = `(())()`;
+const str = `(A(BC)D)EF(G(H)(IJ)K)LM(N)`;
 console.log(solution(str));
+
+// 생각2.
+const solution1 = (s) => {
+  let answer = "";
+  let stack = [];
+  for (const x of s) {
+    if (x === "(") stack.push(x);
+    if (x === ")") stack.pop(x);
+    else if (stack.length === 0) answer += x;
+  }
+  return answer;
+};

@@ -854,8 +854,6 @@ console.log(solution(a, b));
 ```jsx
 // 43. 올바른 괄호(스택)
 
-// 43. 올바른 괄호(스택)
-
 const solution = (s) => {
   const answer = "YES";
   let stack = [];
@@ -873,4 +871,34 @@ const solution = (s) => {
 
 const str = `(())()`;
 console.log(solution(str));
+```
+
+```jsx
+// 44. 괄호문자제거(스택)
+const solution = (s) => {
+  let answer = "";
+  let stack = [];
+  for (const x of s) {
+    if (x === ")") {
+      while (stack.pop() !== "(");
+    } else stack.push(x);
+  }
+  answer = stack.join("");
+  return answer;
+};
+
+const str = `(A(BC)D)EF(G(H)(IJ)K)LM(N)`;
+console.log(solution(str));
+
+// 생각2.
+const solution1 = (s) => {
+  let answer = "";
+  let stack = [];
+  for (const x of s) {
+    if (x === "(") stack.push(x);
+    if (x === ")") stack.pop(x);
+    else if (stack.length === 0) answer += x;
+  }
+  return answer;
+};
 ```
