@@ -1,20 +1,29 @@
 "use strict";
 
-const solution = (str1, str2) => {
-  let answer = "YES";
-  const sH = new Map();
-  for (const x of str1) {
-    if (sH.has(x)) sH.set(x, sH.get(x) + 1);
-    else sH.set(x, 1);
+// 44. 괄호문자제거
+const solution = (s) => {
+  let answer = "";
+  let stack = [];
+  for (const x of s) {
+    if (x === ")") {
+      while (stack.pop() !== "(");
+    } else stack.push(x);
   }
-  for (const x of str2) {
-    if (!sH.has(x) || sH.get(x) === 0) return "NO";
-    sH.set(x, sH.get(x) - 1);
-  }
-
+  answer = stack.join("");
   return answer;
 };
 
-const a = `AbaAeCe`;
-const b = `baeeACA`;
-console.log(solution(a, b));
+const str = `(A(BC)D)EF(G(H)(IJ)K)LM(N)`;
+console.log(solution(str));
+
+// 생각2.
+const solution1 = (s) => {
+  let answer = "";
+  let stack = [];
+  for (const x of s) {
+    if (x === "(") stack.push(x);
+    if (x === ")") stack.pop(x);
+    else if (stack.length === 0) answer += x;
+  }
+  return answer;
+};

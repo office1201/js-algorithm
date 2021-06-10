@@ -850,3 +850,55 @@ console.log(solution(a, b));
 // 42. 모든 아나그램 찾기
 `🔥🔥🔥🔥난이도🔥🔥🔥🔥, 이후 진행📝`;
 ```
+
+```jsx
+// 43. 올바른 괄호(스택)
+
+const solution = (s) => {
+  const answer = "YES";
+  let stack = [];
+  for (const x of s) {
+    if (x === "(") stack.push(x);
+    else {
+      if (stack.length === 0) return "NO";
+      stack.pop();
+    }
+  }
+  if (stack.length > 0) return "NO";
+
+  return answer;
+};
+
+const str = `(())()`;
+console.log(solution(str));
+```
+
+```jsx
+// 44. 괄호문자제거(스택)
+const solution = (s) => {
+  let answer = "";
+  let stack = [];
+  for (const x of s) {
+    if (x === ")") {
+      while (stack.pop() !== "(");
+    } else stack.push(x);
+  }
+  answer = stack.join("");
+  return answer;
+};
+
+const str = `(A(BC)D)EF(G(H)(IJ)K)LM(N)`;
+console.log(solution(str));
+
+// 생각2.
+const solution1 = (s) => {
+  let answer = "";
+  let stack = [];
+  for (const x of s) {
+    if (x === "(") stack.push(x);
+    if (x === ")") stack.pop(x);
+    else if (stack.length === 0) answer += x;
+  }
+  return answer;
+};
+```
