@@ -1,29 +1,32 @@
 "use strict";
 
-// 44. 괄호문자제거
+// 46.후위식 연산(postfix)
+const str = "352+*9-";
+
 const solution = (s) => {
-  let answer = "";
   let stack = [];
-  for (const x of s) {
-    if (x === ")") {
-      while (stack.pop() !== "(");
-    } else stack.push(x);
+  for (const i of s) {
+    if (!isNaN(i)) stack.push(i);
+    if (i === "+") {
+      let num1 = stack.pop();
+      let num2 = stack.pop();
+      const addNum = Number(num1) + Number(num2);
+      stack.push(addNum);
+    }
+    if (i === "*") {
+      let num1 = stack.pop();
+      let num2 = stack.pop();
+      const multiNum = num1 * num2;
+      stack.push(multiNum);
+    }
+    if (i === "-") {
+      let num1 = stack.pop();
+      let num2 = stack.pop();
+      const minusNum = num2 - num1;
+      stack.push(minusNum);
+    }
   }
-  answer = stack.join("");
-  return answer;
+  return stack.toString();
 };
 
-const str = `(A(BC)D)EF(G(H)(IJ)K)LM(N)`;
 console.log(solution(str));
-
-// 생각2.
-const solution1 = (s) => {
-  let answer = "";
-  let stack = [];
-  for (const x of s) {
-    if (x === "(") stack.push(x);
-    if (x === ")") stack.pop(x);
-    else if (stack.length === 0) answer += x;
-  }
-  return answer;
-};
